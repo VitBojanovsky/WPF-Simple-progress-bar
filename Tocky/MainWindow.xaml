@@ -11,6 +11,7 @@
         <Button Content="Spustit" HorizontalAlignment="Left" Margin="572,160,0,0" VerticalAlignment="Top" Height="57" Width="95" Click="Button_Click"/>
         <TextBox HorizontalAlignment="Left" Height="69" Margin="137,101,0,0" TextWrapping="Wrap" Text="" Name="tb" VerticalAlignment="Top" Width="292"/>
         <TextBlock HorizontalAlignment="Left" Height="47" Margin="283,343,0,0" TextWrapping="Wrap" TextAlignment="Center"   Text="Procenta" VerticalAlignment="Top" Name="tb2" Width="168"/>
+        <Button Content="Stop" HorizontalAlignment="Left" Margin="572,86,0,0" VerticalAlignment="Top" Name="stopka" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

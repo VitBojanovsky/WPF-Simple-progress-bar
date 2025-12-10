@@ -17,6 +17,8 @@ namespace Tocky
     public partial class MainWindow : Window
 
     {
+        public bool stop = false;
+        public int x = 0;
         int a = 0;
         int y = 0;
         DispatcherTimer timer = new DispatcherTimer();
@@ -30,23 +32,64 @@ namespace Tocky
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            int x = Convert.ToInt32(tb.Text);
+            x = Convert.ToInt32(tb.Text);
+
             a = x / 2;
+            if (a < 0)
+            {
+                a = a * -1;
+            }
             tb2.Text = a.ToString() + "%";
             timer.Start();
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            
-            int x = Convert.ToInt32(tb.Text);
-            Bobek.Value = y;
-            if (y==x)
+            if (stop == false)
             {
-                timer.Stop();
+                if (x < 0)
+                {
+                    x = x * -1;
+                }
+
+                if (x > y)
+                {
+                    Bobek.Value = y;
+                    if (y == x)
+                    {
+                        timer.Stop();
+
+                    }
+                    y++;
+                }
+                if (x < y)
+                {
+                    Bobek.Value = y;
+                    if (y == x * -1 || y == 0)
+                    {
+                        timer.Stop();
+                    }
+                    y--;
+
+
+
+                }
+            }
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (stopka.Content == "Stop")
+            {
+                stop = true;
+                stopka.Content = "Start";
 
             }
-            y++;
-
+            else
+            {
+                stop = false;
+                stopka.Content = "Stop";
+            }
         }
     }
 }
